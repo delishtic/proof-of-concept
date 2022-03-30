@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   Animated,
   ScrollView,
+  SafeAreaView
 } from 'react-native';
 import {BottomSheet} from 'react-native-btr';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -91,7 +92,7 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {animatedHeader}
       {animatedScrollView}
       <Button
@@ -209,7 +210,7 @@ const App = () => {
           </TouchableOpacity>
         </View>
       </BottomSheet>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -230,6 +231,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: HEADER_MAX_HEIGHT,
     padding: 10,
+    paddingTop: Platform.OS==='ios' ? 30 : 0,
     position: 'absolute',
     width: '100%',
     zIndex: 1,
